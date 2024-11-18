@@ -82,19 +82,24 @@
                   "maximumError": "10kb"
                 }
               ]
-            }
-          }
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "SportsStore:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "SportsStore:build:production"
+            },
+            "development": {
+              "browserTarget": "SportsStore:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -135,14 +140,17 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "SportsStore:serve"
+            "protractorConfig": "e2e/protractor.conf.js"
           },
           "configurations": {
             "production": {
               "devServerTarget": "SportsStore:serve:production"
+            },
+            "development": {
+              "devServerTarget": "SportsStore:serve:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         }
       }
     }},
