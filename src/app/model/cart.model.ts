@@ -11,7 +11,7 @@ export class Cart {
   );
   public cartPrice = computed(() =>
     this.lines().reduce((total, line) => {
-      return total + line.quantity * line.product.price;
+      return (total += line.quantity * line.product.price);
     }, 0)
   );
 
@@ -25,10 +25,14 @@ export class Cart {
   }
 
   updateQuantity(product: Product, quantity: number) {
-    let line = this.lines().find((line) => line.product.id == product.id);
-    if (line != undefined) {
-      line.quantity = Number(quantity);
-    }
+    this.lines.update((lines) =>
+      lines.map((line) => {
+        if (line.product.id === product.id) {
+          line.quantity = Number(quantity);
+        }
+        return line;
+      })
+    );
   }
 
   removeLine(id: number) {

@@ -12,7 +12,7 @@ import { CounterDirective } from "./counter.directive";
     selector: "store",
     templateUrl: "store.component.html",
     standalone: true,
-    imports: [CartSummaryComponent, NgFor, RouterLink, FormsModule, CounterDirective, CurrencyPipe]
+    imports: [CartSummaryComponent, RouterLink, FormsModule, CounterDirective, CurrencyPipe]
 })
 export class StoreComponent {
     public selectedCategory = null;
