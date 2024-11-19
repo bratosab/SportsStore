@@ -1,21 +1,20 @@
-import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, RouterStateSnapshot,
-            Router } from "@angular/router";
+import { inject, Injectable } from "@angular/core";
+import {
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  Router,
+  CanActivateChildFn,
+  CanActivateFn,
+} from "@angular/router";
 import { AuthService } from "../model/auth.service";
 
-@Injectable()
-export class AuthGuard {
+export const AuthGuard: CanActivateFn = () => {
+  const router = inject(Router);
+  const auth = inject(AuthService);
 
-    constructor(private router: Router,
-                private auth: AuthService) { }
-
-    canActivate(route: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): boolean {
-
-        if (!this.auth.authenticated) {
-            this.router.navigateByUrl("/admin/auth");
-            return false;
-        } 
-        return true;
-    }
-}
+  if (!auth.authenticated) {
+    router.navigateByUrl("/admin/auth");
+    return false;
+  }
+  return true;
+};
