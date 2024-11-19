@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Cart } from "./cart.model";
 
-@Injectable()
+@Injectable({ providedIn: "root" })
 export class Order {
     public id: number;
     public name: string;

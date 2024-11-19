@@ -10,22 +10,32 @@ import { ProductEditorComponent } from "./productEditor.component";
 import { OrderTableComponent } from "./orderTable.component";
 
 let routing = RouterModule.forChild([
-    { path: "auth", component: AuthComponent },
-    {
-        path: "main", component: AdminComponent, canActivate: [AuthGuard],
-        children: [
-            { path: "products/:mode/:id", component: ProductEditorComponent },
-            { path: "products/:mode", component: ProductEditorComponent },
-            { path: "products", component: ProductTableComponent },
-            { path: "orders", component: OrderTableComponent },
-            { path: "**", redirectTo: "products" }
-        ]
-    },
-    { path: "**", redirectTo: "auth" }
+  { path: "auth", component: AuthComponent },
+  {
+    path: "main",
+    component: AdminComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: "products/:mode/:id", component: ProductEditorComponent },
+      { path: "products/:mode", component: ProductEditorComponent },
+      { path: "products", component: ProductTableComponent },
+      { path: "orders", component: OrderTableComponent },
+      { path: "**", redirectTo: "products" },
+    ],
+  },
+  { path: "**", redirectTo: "auth" },
 ]);
 
 @NgModule({
-    imports: [CommonModule, FormsModule, routing, AuthComponent, AdminComponent,
-        ProductTableComponent, ProductEditorComponent, OrderTableComponent]
+  imports: [
+    CommonModule,
+    FormsModule,
+    routing,
+    AuthComponent,
+    AdminComponent,
+    ProductTableComponent,
+    ProductEditorComponent,
+    OrderTableComponent,
+  ],
 })
 export class AdminModule {}

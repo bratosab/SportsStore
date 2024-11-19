@@ -4,7 +4,7 @@ import { Order } from "./order.model";
 //import { StaticDataSource } from "./static.datasource";
 import { RestDataSource } from "./rest.datasource";
 
-@Injectable()
+@Injectable({ providedIn: "root" })
 export class OrderRepository {
     private orders: Order[] = [];
     private loaded: boolean = false;

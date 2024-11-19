@@ -3,7 +3,7 @@ import { Product } from "./product.model";
 //import { StaticDataSource } from "./static.datasource";
 import { RestDataSource } from "./rest.datasource";
 
-@Injectable()
+@Injectable({ providedIn: "root" })
 export class ProductRepository {
     private products: Product[] = [];
     private categories: string[] = [];

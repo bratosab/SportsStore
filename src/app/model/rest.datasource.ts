@@ -10,7 +10,7 @@ import { HttpHeaders } from '@angular/common/http';
 const PROTOCOL = "http";
 const PORT = 3500;
 
-@Injectable()
+@Injectable({ providedIn: "root" })
 export class RestDataSource {
     baseUrl: string;
     auth_token: string;
