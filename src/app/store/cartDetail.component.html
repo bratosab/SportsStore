@@ -17,12 +17,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngIf="cart.lines.length == 0">
+            <tr *ngIf="cart.lines().length == 0">
               <td colspan="4" class="text-center">
                 Your cart is empty
               </td>
             </tr>
-            <tr *ngFor="let line of cart.lines">
+            <tr *ngFor="let line of cart.lines()">
               <td>
                 <input type="number" class="form-control-sm"
                        style="width:5em"
@@ -49,7 +49,7 @@
             <tr>
               <td colspan="3" class="text-right">Total:</td>
               <td class="text-right">
-                {{cart.cartPrice | currency:"USD":"symbol":"2.2-2"}}
+                {{cart.cartPrice() | currency:"USD":"symbol":"2.2-2"}}
               </td>
             </tr>
           </tfoot>
@@ -63,7 +63,7 @@
             Continue Shopping
         </button>
         <button class="btn btn-secondary m-1" routerLink="/checkout"
-                [disabled]="cart.lines.length == 0">
+                [disabled]="cart.lines().length == 0">
           Checkout
         </button>
       </div>
