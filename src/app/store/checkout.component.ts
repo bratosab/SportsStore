@@ -1,11 +1,15 @@
 import { Component } from "@angular/core";
-import { NgForm } from "@angular/forms";
+import { NgForm, FormsModule } from "@angular/forms";
 import { OrderRepository } from "../model/order.repository";
 import { Order } from "../model/order.model";
+import { NgIf } from "@angular/common";
+import { RouterLink } from "@angular/router";
 
 @Component({
     templateUrl: "checkout.component.html",
-    styleUrls: ["checkout.component.css"]
+    styleUrls: ["checkout.component.css"],
+    standalone: true,
+    imports: [NgIf, RouterLink, FormsModule]
 })
 export class CheckoutComponent {
     orderSent: boolean = false;

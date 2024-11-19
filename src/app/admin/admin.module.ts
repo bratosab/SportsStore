@@ -25,8 +25,7 @@ let routing = RouterModule.forChild([
 ]);
 
 @NgModule({
-    imports: [CommonModule, FormsModule, routing],
-    declarations: [AuthComponent, AdminComponent,
+    imports: [CommonModule, FormsModule, routing, AuthComponent, AdminComponent,
         ProductTableComponent, ProductEditorComponent, OrderTableComponent]
 })
 export class AdminModule {}

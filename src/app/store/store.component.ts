@@ -2,11 +2,17 @@ import { Component } from "@angular/core";
 import { Product } from "../model/product.model";
 import { ProductRepository } from "../model/product.repository";
 import { Cart } from "../model/cart.model";
-import { Router } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
+import { CartSummaryComponent } from "./cartSummary.component";
+import { NgFor, CurrencyPipe } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { CounterDirective } from "./counter.directive";
 
 @Component({
     selector: "store",
-    templateUrl: "store.component.html"
+    templateUrl: "store.component.html",
+    standalone: true,
+    imports: [CartSummaryComponent, NgFor, RouterLink, FormsModule, CounterDirective, CurrencyPipe]
 })
 export class StoreComponent {
     public selectedCategory = null;

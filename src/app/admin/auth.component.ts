@@ -1,10 +1,13 @@
 import { Component } from "@angular/core";
-import { NgForm } from "@angular/forms";
-import { Router } from "@angular/router";
+import { NgForm, FormsModule } from "@angular/forms";
+import { Router, RouterLink } from "@angular/router";
 import { AuthService } from "../model/auth.service";
+import { NgIf } from "@angular/common";
 
 @Component({
-    templateUrl: "auth.component.html"
+    templateUrl: "auth.component.html",
+    standalone: true,
+    imports: [NgIf, FormsModule, RouterLink]
 })
 export class AuthComponent {
     public username: string;

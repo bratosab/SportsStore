@@ -3,7 +3,8 @@ import {
 } from "@angular/core";
 
 @Directive({
-    selector: "[counterOf]"
+    selector: "[counterOf]",
+    standalone: true
 })
 export class CounterDirective {
 

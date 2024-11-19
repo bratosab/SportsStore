@@ -1,11 +1,13 @@
 import { Component } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
-import { NgForm } from "@angular/forms";
+import { Router, ActivatedRoute, RouterLink } from "@angular/router";
+import { NgForm, FormsModule } from "@angular/forms";
 import { Product } from "../model/product.model";
 import { ProductRepository } from "../model/product.repository";
 
 @Component({
-    templateUrl: "productEditor.component.html"
+    templateUrl: "productEditor.component.html",
+    standalone: true,
+    imports: [FormsModule, RouterLink]
 })
 export class ProductEditorComponent {
     editing: boolean = false;

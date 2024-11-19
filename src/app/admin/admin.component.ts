@@ -1,9 +1,11 @@
 import { Component } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from "@angular/router";
 import { AuthService } from "../model/auth.service";
 
 @Component({
-    templateUrl: "admin.component.html"
+    templateUrl: "admin.component.html",
+    standalone: true,
+    imports: [RouterLink, RouterLinkActive, RouterOutlet]
 })
 export class AdminComponent {
 
